@@ -1,84 +1,25 @@
-// ARRAY
-console.log("\n------ ARRAY ------");
+let quote = document.getElementById('quote');
+let autor = document.getElementById('autor');
+let btn = document.getElementById('btn');
 
-let dataArray = ["Jhone Doe", 30, "jhondoe@gmail.com"];
+console.log(quote);
+console.log(autor);
+console.log(btn);
 
-console.log(dataArray);
-console.log(dataArray[2]);
-console.log(dataArray[0]);
-
-
-
-
-// OBJECT
-console.log("\n ------ OBJECT ------ ");
-
-let dataObject = {
-    nama: "vincent sirait",
-    umur: 16,
-    email: "vincentleonardo@gmail.com"
-}
-
-console.log(dataObject);
-
-
-
-
-
-// cara fetch
-console.log("\n----- FETCH -----");
-fetch("data1.json").then(response => response.json()).then(data => {
-    console.log(data);
-});
-
-
-
-
-// cara ASYNC/AWAIT
-console.log("\n----- ASYNC/AWAIT -----");
-
-async function ambildata() {
+async function getQuote() {
     try {
-        let response = await fetch("data1.json");
-        let data = await response.json();
+        let result = await fetch('https://dummyjson.com/quotes/random');
 
-    console.log(data);
+        let data = await result.json();
 
-
-    } catch (error) {
-        console.log("error: " + error);
-    }
-
-}
-
-
-
-
-
-
-
-// cara ASYNC/AWAIT 
-console.log("\n----- ASYNC/AWAIT/FETCH -----");
-
-
-// function / fungsi buat ambil
-async function ambildata() {
-    try {
-
-        // 1.request / permintaan data dari api/file JSON (meminta data dari api/file JSON)
-        let response = await fetch("data1.json");
-
-        // 2. KONVERSI RESPONSE MENJADI FORMAT JSON (mengubah data ke JSON)
-        let data = await response.json();
-
-        // 3. mencetak / menaampilkan data 
         console.log(data);
 
+        quote.innerHTML = data.quote;
+        autor.innerHTML = data.author; 
 
     } catch (error) {
-        console.log("error: " + error);
+        console.log("eror : " + error); 
     }
-
 }
 
-ambildata();
+getQuote();
