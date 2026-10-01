@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url('background.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    overflow: hidden;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(15, 23, 42, 0.35), rgba(10, 15, 29, 0.75));
+}
+
+div {
+    position: relative;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 60px 45px;
+    border-radius: 32px;
+    max-width: 580px;
+    width: 88%;
+    text-align: center;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35), 
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+div:hover {
+    transform: translateY(-6px);
+}
+
+#quote {
+    font-family: 'Cinzel', serif;
+    font-size: 1.75rem;
+    font-weight: 500;
+    color: #f8fafc;
+    line-height: 1.5;
+    letter-spacing: 0.8px;
+    margin-bottom: 24px;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+#autor {
+    font-size: 0.9rem;
+    font-weight: 300;
+    font-style: italic;
+    color: #e2e8f0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    opacity: 0.85;
+}
+
+#btn {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(226, 232, 240, 0.8));
+    color: #0f172a;
+    border: none;
+    padding: 14px 38px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+#btn:hover {
+    background: #ffffff;
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 12px 30px rgba(255, 255, 255, 0.25);
+}
+
+#btn:active {
+    transform: translateY(0) scale(0.98);
+}
